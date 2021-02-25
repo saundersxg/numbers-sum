@@ -1,0 +1,145 @@
+/***************************************************************************
+* NumberSum.java 														                               *
+* XiuQin Saunders														                               *
+* Subline 2021 CMSC 255										                          			 *
+* Submitted 2/11/2021													                             *
+* Write a program called NumberSum.java that determines if a number, 	     *
+* when properly configured, is modularly divisible by 11, 9, or 6 based    *
+* on the user's input. To find this out you will neec to randomly 		     *
+* generate or enter a 5- digit number. you can randomly generate each 	   *
+* diget independently or the number all at once. Each digit will then 	   *
+* be placed into the following formula and to determine if it is 		       *
+* modularly divisible by 11, 9, or 6								                       *
+****************************************************************************/
+import java.util.Scanner;
+import java.util.Random;
+
+public class NumberSum {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+		// user promted to choose a random number or to enter the number
+		System.out.println("Would you like to randomly enter a number (1) or enter it yourself (2)?");
+		int choice = input.nextInt();
+
+/**************************************************************************************************************
+***************************************************************************************************************/
+		// execution of NumberSum with a random number
+		if (choice == 1) {
+			// heres the random generation
+			Random random = new Random();
+			// 5 digit random number generated
+			int saveNumber = random.nextInt(100000); 	// 0 inclusive and 100000 exclusive ie. 5 digit
+			int enteredNumber = saveNumber;
+
+			// 10000
+			
+			//variables i need
+			int indexOfNumber = 10000;		// division gets each number from each placevalues
+			int blip; 					// temporary value storage
+			int indexNumberSum = 0;		// forming the multiples [5-1] with corresponding place value number
+			int totalSum = 0;			// adding up the sum of multiplyers
+
+		// math to figure out the Number sum
+			// 5, 4, 3, 2, 1 multiple times
+			for (int i = 5; i > 0; i--) {
+				// isolating place value of enteredNumber
+				blip = (enteredNumber / indexOfNumber);
+                indexNumberSum = blip * i;
+                // adding the values
+                totalSum += indexNumberSum;
+                // taking off the largest placevalue number to work
+                // with the algorithm math
+                enteredNumber = enteredNumber - (blip * indexOfNumber);
+                indexOfNumber /= 10;
+			}
+
+		// now we have the totalSum
+			System.out.println(saveNumber);
+		// is it divisible by 11, 9, 6?
+			// user prompted to choose divisor from 11, 9, or 6
+			System.out.println("Would you like to see if this number is divisible by 11, 9, or 6?");
+			System.out.println("Enter the number you would like to divide this number by");
+			int divisor = input.nextInt();
+
+			// is the input 11, 9, or 6?
+			if (divisor == 11 || divisor == 9 || divisor == 6){
+
+				// boolean setting default to off
+				boolean isDivisible = false;
+
+				if (totalSum % divisor == 0) {
+					isDivisible = true;
+					System.out.println(saveNumber + " is divisible by " + divisor);
+				}
+				else {
+					isDivisible = false;
+					System.out.println(saveNumber + " is not divisible by " + divisor);
+				}
+			}
+			else {
+				System.out.println("Incorrect input");
+			}
+		}
+
+//*************************************************************************************************************
+		// execution of NumberSum with entered number
+		else if (choice == 2) {
+			// number entered by the user
+			System.out.println("Enter a 5-digit number");
+			int saveNumber = input.nextInt();
+			int enteredNumber = saveNumber;
+
+			// 10000
+			
+			//variables i need
+			int indexOfNumber = 10000;		// division gets each number from each placevalues
+			int blip; 					// temporary value storage
+			int indexNumberSum = 0;		// forming the multiples [5-1] with corresponding place value number
+			int totalSum = 0;			// adding up the sum of multiplyers
+
+		// math to figure out the Number sum
+			// 5, 4, 3, 2, 1 multiple times
+			for (int i = 5; i > 0; i--) {
+				// isolating place value of enteredNumber
+				blip = (enteredNumber / indexOfNumber);
+                indexNumberSum = blip * i;
+                // adding the values
+                totalSum += indexNumberSum;
+                // taking off the largest placevalue number to work
+                // with the algorithm math
+                enteredNumber = enteredNumber - (blip * indexOfNumber);
+                indexOfNumber /= 10;
+			}
+
+		// now we have the totalSum
+		// is it divisible by 11, 9, 6?
+			// user prompted to choose divisor from 11, 9, or 6
+			System.out.println("Would you like to see if this number is divisible by 11, 9, or 6?");
+			System.out.println("Enter the number you would like to divide this number by");
+			int divisor = input.nextInt();
+
+			// is the input 11, 9, or 6?
+			if (divisor == 11 || divisor == 9 || divisor == 6) {
+
+				// boolean setting default to off
+				boolean isDivisible = false;
+
+				if (totalSum % divisor == 0) {
+					isDivisible = true;
+					System.out.println(saveNumber + " is divisible by " + divisor);
+				}
+				else {
+					isDivisible = false;
+					System.out.println(saveNumber + " is not divisible by " + divisor);
+				}
+			}
+			else {
+				System.out.println("Incorrect input");
+			}
+
+
+		}
+
+	}	
+}
