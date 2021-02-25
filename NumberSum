@@ -1,15 +1,15 @@
 /***************************************************************************
-* NumberSum.java 														                               *
-* XiuQin Saunders														                               *
-* Subline 2021 CMSC 255										                          			 *
-* Submitted 2/11/2021													                             *
-* Write a program called NumberSum.java that determines if a number, 	     *
-* when properly configured, is modularly divisible by 11, 9, or 6 based    *
-* on the user's input. To find this out you will neec to randomly 		     *
-* generate or enter a 5- digit number. you can randomly generate each 	   *
-* diget independently or the number all at once. Each digit will then 	   *
-* be placed into the following formula and to determine if it is 		       *
-* modularly divisible by 11, 9, or 6								                       *
+* NumberSum.java
+* XiuQin Saunders
+* Subline 2021 CMSC 255
+* Submitted 2/11/2021
+* Write a program called NumberSum.java that determines if a number,
+* when properly configured, is modularly divisible by 11, 9, or 6 based
+* on the user's input. To find this out you will neec to randomly
+* generate or enter a 5- digit number. you can randomly generate each
+* diget independently or the number all at once. Each digit will then
+* be placed into the following formula and to determine if it is
+* modularly divisible by 11, 9, or 6
 ****************************************************************************/
 import java.util.Scanner;
 import java.util.Random;
